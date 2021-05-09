@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+{% load static  %}
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Pcos Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+                 <form action="result"method="POST">{%csrf_token%}
+								<tr>
+									<input type="text" name="Age (yrs)" placeholder="Age (yrs)"pattern="[1-9]{2}" title="Please enter a valid number between 0 and 200." required="required"/>
+                                    <input type="text" name="BMI" placeholder="BMI" required="required" />
+									<td><label for="Cycle (R/I)"> Cycle (R/I)       </label>
+										<select name="Cycle (R/I)" />
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="Weight Gain (Y/N)"> Weight Gain (Y/N)    </label>
+										<select name="Weight Gain (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+									<td><label for="Hair Growth (Y/N)"> Hair Growth (Y/N)    </label>
+										<select name="Hair Growth (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="Skin Darkening (Y/N)">Skin Darkening (Y/N) </label>
+										<select name="Skin Darkening (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+									<td>
+                                        <label for="Hair Loss (Y/N)"> Hair Loss (Y/N) </label>
+										<select name="Hair Loss (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+                                    <td>
+										<label for="Pimples (Y/N)"> Pimples (Y/N) </label>
+										<select name="Pimples (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+                                    <td>
+										<label for="Fast food (Y/N)"> Fast food (Y/N) </label>
+										<select name="Fast food (Y/N)" class="form-control">
+											<option value="1">Yes</opt
+                                                ion>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+                                    <td>
+										<label for="Regular Exercise (Y/N)">Regular Exercise (Y/N) </label>
+										<select name="Regular Exercise (Y/N)" class="form-control">
+											<option value="1">Yes</option>
+											<option value="0">No</option>
+										</select><br>
+									</td>
+								</tr>
+
+								<tr><input type="submit" name="submit" class="form-control btn btn-primary" value="Submit"></tr>
+
+                  </form>
+
+     <br>
+     <br>
+	 Do I have PCOS ? {{r}}
+
+
+
+ </div>
+
+</body>
+</html>
