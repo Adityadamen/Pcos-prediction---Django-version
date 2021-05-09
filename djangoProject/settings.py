@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-rl$@7!e@9!0hu7&quboy0arbe2#$bgi8q@#=eocya5$*%od_@1
 DEBUG = False
 
 ALLOWED_HOSTS = ['pcosprediction.herokuapp.com']
+django_heroku.settings(locals())
 
 
 # Application definition
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -125,7 +126,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
 )
-django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
